@@ -1,0 +1,23 @@
+title: Suspicious Off-Hours Login
+id: 1a2b3c4d-5e6f-7890-abcd-ef1234567890
+status: experimental
+description: Detects login attempts occurring outside business hours (before 6 AM or after 10 PM)
+author: SecDetect AI
+date: 2024/01/20
+tags:
+    - attack.initial_access
+    - attack.t1078
+logsource:
+    category: authentication
+    product: any
+detection:
+    selection:
+        event_type: login
+    filter_hours:
+        hour|gte: 6
+        hour|lte: 22
+    condition: selection and not filter_hours
+falsepositives:
+    - Legitimate after-hours work
+    - International employees in different timezones
+level: medium
