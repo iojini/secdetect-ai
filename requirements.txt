@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+slack-bolt
+python-dotenv
+pydantic
+requests
+anthropic
+pysigma
+pytest
+pyyaml
